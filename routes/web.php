@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.auth.auth-login');
 });
 
 Route::get('/auth-forgot-password', function () {
