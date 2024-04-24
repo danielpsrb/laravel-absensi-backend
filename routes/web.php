@@ -6,10 +6,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('pages.dashboard', ['type_menu' => 'dashboard']);
-});
-
 Route::get('/auth-forgot-password', function () {
     return view('pages.auth.auth-forgot-password', ['type_menu' => 'auth']);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', function () {
+        return view('pages.dashboard', ['type_menu' => 'home']);
+    })->name('home');
 });
