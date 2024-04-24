@@ -36,7 +36,7 @@
                         <label for="password"
                             class="control-label">Password</label>
                         <div class="float-right">
-                            <a href="auth-forgot-password.html"
+                            <a href="auth-forgot-password"
                                 class="text-small">
                                 Forgot Password?
                             </a>
