@@ -16,7 +16,7 @@
 
         <div class="card-body">
             <form method="POST"
-                action="#"
+                action="{{ route('login') }}"
                 class="needs-validation"
                 novalidate="">
                 <div class="form-group">
