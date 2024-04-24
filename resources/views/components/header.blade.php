@@ -243,7 +243,7 @@
                 data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image"
-                    src="{{ asset('img/avatar/avatar-1.png') }}"
+                    src="{{ asset('img/avatar/admin.png') }}"
                     class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name}}</div>
             </a>
