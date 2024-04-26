@@ -8,7 +8,7 @@
         </div>
         <ul class="sidebar-menu">
 
-            <li class="nav-item dropdown {{ $type_menu === 'dashboard' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
@@ -19,7 +19,7 @@
                 </a>
             </li>
 
-            <li class="nav-item dropdown {{ $type_menu === 'bootstrap' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
                 <ul class="dropdown-menu">
@@ -106,7 +106,7 @@
                 </ul>
             </li>
             <li class="menu-header">Stisla</li>
-            <li class="nav-item dropdown {{ $type_menu === 'components' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-th-large"></i>
                     <span>Components</span></a>
@@ -165,7 +165,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown {{ $type_menu === 'forms' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Forms</span></a>
                 <ul class="dropdown-menu">
@@ -198,7 +198,7 @@
                     <li><a href="gmaps-simple.html">Simple</a></li>
                 </ul>
             </li> --}}
-            <li class="nav-item dropdown {{ $type_menu === 'modules' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Modules</span></a>
                 <ul class="dropdown-menu">
@@ -253,7 +253,7 @@
                 </ul>
             </li>
             <li class="menu-header">Pages</li>
-            <li class="nav-item dropdown {{ $type_menu === 'auth' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
                 <ul class="dropdown-menu">
@@ -275,7 +275,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown {{ $type_menu === 'error' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-exclamation"></i>
                     <span>Errors</span></a>
@@ -298,7 +298,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown {{ $type_menu === 'features' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Features</span></a>
                 <ul class="dropdown-menu">
@@ -332,7 +332,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown {{ $type_menu === 'utilities' ? 'active' : '' }}">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i>
                     <span>Utilities</span></a>
