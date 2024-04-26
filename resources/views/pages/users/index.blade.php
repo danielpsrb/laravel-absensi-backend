@@ -32,7 +32,6 @@
                     You can manage all Users, such as editing, deleting and more.
                 </p>
 
-
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
@@ -53,11 +52,9 @@
                                 </div>
 
                                 <div class="clearfix mb-3"></div>
-
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
@@ -83,7 +80,6 @@
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
-
                                                         <form action="{{ route('users.destroy', $user->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
@@ -97,8 +93,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
-
                                     </table>
                                 </div>
                                 <div class="float-right">
