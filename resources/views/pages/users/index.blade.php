@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
 @endpush
 
+
 @section('main')
     <div class="main-content">
         <section class="section">
@@ -53,26 +54,32 @@
 
                                 <div class="clearfix mb-3"></div>
                                 <div class="table-responsive">
-                                    <table class="table-striped table">
+                                    <table class="table-striped table-hover table">
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Created At</th>
+                                            <th>NIM</th>
+                                            <th>NIP</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                         @foreach ($users as $user)
                                             <tr>
-
-                                                <td>{{ $user->name }}
+                                                <td>
+                                                    {{ $user->name }}
                                                 </td>
                                                 <td>
                                                     {{ $user->email }}
                                                 </td>
                                                 <td>
-                                                    {{ $user->phone }}
+                                                    {{ $user->nim }}
                                                 </td>
-                                                <td>{{ $user->created_at }}</td>
+                                                <td>
+                                                    {{ $user->nip }}
+                                                </td>
+                                                <td>
+                                                    {{ $user->role }}
+                                                </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('users.edit', $user->id) }}'
