@@ -84,8 +84,12 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
-                                <input type="number" class="form-control" name="phone" value="{{ $user->phone }}">
+                                <label>NIM</label>
+                                <input type="number" class="form-control" name="nim" value="{{ $user->nim }}">
+                            </div>
+                            <div class="form-group">
+                                <label>NIP</label>
+                                <input type="number" class="form-control" name="nim" value="{{ $user->nip }}">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
@@ -100,11 +104,11 @@
                                             @if ($user->role == 'staff admin') checked @endif>
                                         <span class="selectgroup-button">Staff Admin</span>
                                     </label>
-                                    {{-- <label class="selectgroup-item">
+                                    <label class="selectgroup-item">
                                         <input type="radio" name="role" value="user" class="selectgroup-input"
                                             @if ($user->role == 'user') checked @endif>
                                         <span class="selectgroup-button">User</span>
-                                    </label> --}}
+                                    </label>
                                 </div>
                             </div>
                         </div>
