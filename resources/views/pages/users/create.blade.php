@@ -87,8 +87,35 @@
                                 <input type="number" class="form-control" name="nim">
                             </div>
                             <div class="form-group">
-                                <label>NIP</label>
+                                <label>Program Studi</label>
+                                <input type="text"
+                                    class="form-control @error('study_program')
+                                is-invalid
+                            @enderror"
+                                    name="study_program">
+                                @error('study_program')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Fakultas</label>
+                                <input type="text"
+                                    class="form-control @error('faculty')
+                                is-invalid
+                            @enderror"
+                                    name="facultu">
+                                @error('faculty')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>NIP <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" name="nip">
+                                <small class="text-muted">Isi hanya jika user yang ingin ditambahkan merupakan role admin dan staff admin.</small>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
