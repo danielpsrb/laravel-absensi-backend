@@ -83,34 +83,12 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
-                                <input type="number" class="form-control" name="phone">
+                                <label>NIM</label>
+                                <input type="number" class="form-control" name="nim">
                             </div>
                             <div class="form-group">
-                                <label>Position</label>
-                                <input type="text"
-                                    class="form-control @error('position')
-                                is-invalid
-                            @enderror"
-                                    name="position">
-                                @error('position')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Department</label>
-                                <input type="text"
-                                    class="form-control @error('department')
-                                is-invalid
-                            @enderror"
-                                    name="department">
-                                @error('department')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <label>NIP</label>
+                                <input type="number" class="form-control" name="nip">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
@@ -121,13 +99,13 @@
                                         <span class="selectgroup-button">Admin</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="supervisor" class="selectgroup-input">
-                                        <span class="selectgroup-button">Supervisor</span>
+                                        <input type="radio" name="role" value="staff admin" class="selectgroup-input">
+                                        <span class="selectgroup-button">Staff Admin</span>
                                     </label>
-                                    <label class="selectgroup-item">
+                                    {{-- <label class="selectgroup-item">
                                         <input type="radio" name="role" value="staff" class="selectgroup-input">
                                         <span class="selectgroup-button">Staff</span>
-                                    </label>
+                                    </label> --}}
 
                                 </div>
                             </div>
