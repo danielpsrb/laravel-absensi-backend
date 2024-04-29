@@ -88,8 +88,35 @@
                                 <input type="number" class="form-control" name="nim" value="{{ $user->nim }}">
                             </div>
                             <div class="form-group">
-                                <label>NIP</label>
-                                <input type="number" class="form-control" name="nim" value="{{ $user->nip }}">
+                                <label>Program Studi</label>
+                                <input type="text"
+                                    class="form-control @error('study_program')
+                                is-invalid
+                            @enderror"
+                                    name="study_program" value="{{ $user->study_program }}">
+                                @error('study_program')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Fakultas</label>
+                                <input type="text"
+                                    class="form-control @error('faculty')
+                                is-invalid
+                            @enderror"
+                                    name="faculty" value="{{ $user->faculty }}">
+                                @error('faculty')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>NIP <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" name="nip">
+                                <small class="text-muted">Isi hanya jika user yang ingin diedit atau diupdate merupakan role admin dan staff admin.</small>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Roles</label>
