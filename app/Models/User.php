@@ -23,6 +23,10 @@ class User extends Authenticatable
         'nim',
         'nip',
         'role',
+        'study_program',
+        'faculty',
+        'face_embedding',
+        'image_url',
     ];
 
     /**
