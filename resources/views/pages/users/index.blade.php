@@ -59,6 +59,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>NIM</th>
+                                            <th>Prodi</th>
                                             <th>NIP</th>
                                             <th>Role</th>
                                             <th>Action</th>
@@ -73,6 +74,9 @@
                                                 </td>
                                                 <td>
                                                     {{ $user->nim }}
+                                                </td>
+                                                <td>
+                                                    {{ $user->study_program }}
                                                 </td>
                                                 <td>
                                                     {{ $user->nip }}
