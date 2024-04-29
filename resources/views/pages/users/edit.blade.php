@@ -140,11 +140,11 @@
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Submit</button>
+                            <a href="{{ route('users.index') }}"><button type="button" class="btn btn-danger mr-2">Cancel</button></a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
-
             </div>
         </section>
     </div>
