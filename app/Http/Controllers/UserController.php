@@ -47,6 +47,8 @@ class UserController extends Controller
             'nip' => $request->nip,
             'role' => $request->role,
             'password' => Hash::make($request->password),
+            'study_program' => $request->study_program,
+            'faculty' => $request->faculty,
         ]);
 
         return redirect()->route('users.index')->with('success', 'Data User berhasil dibuat');
@@ -72,6 +74,8 @@ class UserController extends Controller
             'nim' => $request->nim,
             'nip' => $request->nip,
             'role' => $request->role,
+            'study_program' => $request->study_program,
+            'faculty' => $request->faculty,
         ]);
 
         //jika password diisi
@@ -89,5 +93,5 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('users.index')->with('success', 'Data User berhasil dihapus');
-    } 
+    }
 }
