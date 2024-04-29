@@ -32,4 +32,12 @@ class AuthController extends Controller
 
         return response(['user' => $user, 'token' => $token], 200);
     }
+
+    //logout
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+
+        return response(['message' => 'You are logged out now'], 200);
+    }
 }
