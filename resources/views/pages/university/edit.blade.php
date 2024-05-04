@@ -33,30 +33,25 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-md-6 col-12">
-                                            <label>Nama Perusahaan</label>
+                                            <label>Nama Universitas</label>
                                             <input type="text" name="name" class="form-control"
                                                 value="{{ $university->name }}">
                                         </div>
                                         <div class="form-group col-md-6 col-12">
-                                            <label>Alamat Perusahaan</label>
-                                            <input type="text" name="address" class="form-control"
-                                                value="{{ $university->address }}">
+                                            <label>Email Universitas</label>
+                                            <input type="email" name="email" class="form-control"
+                                                value="{{ $university->email }}">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6 col-12">
-                                            <label>Email Perusahaan</label>
-                                            <input type="email" name="email" class="form-control"
-                                                value="{{ $university->email }}">
+                                            <label>Alamat Universitas</label>
+                                            <input type="text" name="address" class="form-control"
+                                                value="{{ $university->address }}">
                                         </div>
                                         <div class="form-group col-md-6 col-12">
                                             <label>Telepon Universitas</label>
-                                            <input type="tel" name="phone" class="form-control" value="{{ $university->phone_number }}">
-                                        </div>
-                                        <div class="form-group col-md-6 col-12">
-                                            <label>Radius KM</label>
-                                            <input type="number" step="0.01" name="radius_km" class="form-control"
-                                                value="{{ $university->radius_km }}">
+                                            <input type="tel" name="phone_number" class="form-control" value="{{ $university->phone_number }}">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -69,6 +64,11 @@
                                             <label>Longitude</label>
                                             <input type="text" name="longitude" class="form-control"
                                                 value="{{ $university->longitude }}">
+                                        </div>
+                                        <div class="form-group col-md-6 col-12">
+                                            <label>Radius KM</label>
+                                            <input type="number" step="0.01" name="radius_km" class="form-control"
+                                                value="{{ $university->radius_km }}">
                                         </div>
                                     </div>
                                     <div class="row">

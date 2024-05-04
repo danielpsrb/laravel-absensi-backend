@@ -19,6 +19,11 @@
                 </div>
             </div>
             <div class="section-body">
+                <div class="row">
+                    <div class="col-12">
+                        @include('layouts.alert')
+                    </div>
+                </div>
                 <h2 class="section-title">Profil Universitas</h2>
                 <p class="section-lead">
                     Informasi tentang universitas Anda.
