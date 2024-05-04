@@ -1,21 +1,26 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="#">Admin Dashboard</a>
+            <a href="#">Daniel Admin</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="#">Admin</a>
         </div>
         <ul class="sidebar-menu">
 
-            <li class="nav-item dropdown">
-                <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="nav-item">
+                <a href="/home" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
             <li class="nav-item">
                 <a href="{{ route('users.index') }}"
                     class="nav-link"><i class="fas fa-columns"></i> <span>Users</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('universites.show', 1) }}"
+                    class="nav-link"><i class="fas fa-columns"></i> <span>University</span>
                 </a>
             </li>
 
