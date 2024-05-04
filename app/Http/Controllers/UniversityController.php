@@ -17,12 +17,12 @@ class UniversityController extends Controller
     //edit
     public function edit($id)
     {
-        $university = University::find(1);
+        $university = University::find($id);
         return view('pages.university.edit', compact('university'));
     }
 
     //update
-    public function update(Request $request, University $university)
+    public function update(Request $request, University $universite)
     {
         $request->validate([
             'name' => 'required',
@@ -36,7 +36,7 @@ class UniversityController extends Controller
             'time_out' => 'required',
         ]);
 
-        $university->update([
+        $universite->update([
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
@@ -48,6 +48,6 @@ class UniversityController extends Controller
             'time_out' => $request->time_out,
         ]);
 
-        return redirect()->route('university.show', $university->id)->with('success', 'University updated successfully');
+        return redirect()->route('universites.show',1)->with('success', 'University updated successfully');
     }
 }
