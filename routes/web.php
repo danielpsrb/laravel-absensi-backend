@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
@@ -18,4 +19,5 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('users', UserController::class);
     Route::resource('universites', UniversityController::class);
+    Route::resource('attendances', AttendanceController::class);
 });
