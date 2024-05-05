@@ -17,4 +17,9 @@ class Attendance extends Model
         'latlon_in',
         'latlon_out',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
