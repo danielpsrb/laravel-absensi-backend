@@ -59,11 +59,11 @@
                                         <tr>
 
                                             <th>Name</th>
-                                            <th>Date</th>
-                                            <th>Time In</th>
-                                            <th>Time Out</th>
-                                            <th>Latlong In</th>
-                                            <th>Latlong Out</th>
+                                            <th>Data Tangal</th>
+                                            <th>Time in</th>
+                                            <th>Time out</th>
+                                            <th>Latlong in</th>
+                                            <th>Latlong out</th>
 
                                             <th>Action</th>
                                         </tr>
