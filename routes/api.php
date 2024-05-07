@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AttendanceController;
 use App\Http\Controllers\Api\UniversitiesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,12 @@ Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'
 
 //university
 Route::get('/universities', [UniversitiesController::class, 'index'])->middleware('auth:sanctum');
+
+//checkin
+Route::post('/checkin', [AttendanceController::class, 'checkin'])->middleware('auth:sanctum');
+
+//checkout
+Route::post('/checkout', [AttendanceController::class, 'checkout'])->middleware('auth:sanctum');
+
+//is_checkin
+Route::get('/is-checkin', [AttendanceController::class, 'isCheckedin'])->middleware('auth:sanctum');
