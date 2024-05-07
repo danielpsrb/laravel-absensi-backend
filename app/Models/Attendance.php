@@ -18,6 +18,24 @@ class Attendance extends Model
         'latlon_out',
     ];
 
+    protected $dates = ['date'];
+
+    public function getFormattedDateAttribute()
+    {
+        if ($this->date instanceof \DateTimeInterface) {
+            return $this->date->format('d-m-Y');
+        }
+
+        // If not, try converting it to a DateTime object
+        try {
+            $date = new \DateTime($this->date);
+            return $date->format('d-m-Y');
+        } catch (\Exception $e) {
+            // Handle any errors during conversion
+            return 'Invalid Date';
+        }
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
