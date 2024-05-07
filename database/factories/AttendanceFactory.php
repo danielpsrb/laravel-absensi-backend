@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class AttendanceFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1,
+            'user_id' => User::all()->random()->id, // Get random user_id from User model (table users
             'date' => $this->faker->date(),
             'time_in' => $this->faker->time(),
             'time_out' => $this->faker->time(),
