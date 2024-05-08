@@ -41,4 +41,13 @@ class AttendanceController extends Controller
 
         return redirect()->route('attendances.index')->with('success', 'Data Absensi berhasil diupdate');
     }
+
+    //deleted or destroy
+    public function destroy($id)
+    {
+        $attendance = Attendance::find($id);
+        $attendance->delete();
+
+        return redirect()->route('attendances.index')->with('success', 'Data Absensi berhasil dihapus');
+    }
 }
