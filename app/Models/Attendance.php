@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,22 +19,19 @@ class Attendance extends Model
         'latlon_out',
     ];
 
-    protected $dates = ['date'];
-
-    public function getFormattedDateAttribute()
+    public function getDateAttribute($value)
     {
-        if ($this->date instanceof \DateTimeInterface) {
-            return $this->date->format('d-m-Y');
-        }
+        return Carbon::parse($value)->translatedFormat('d F Y');
+    }
 
-        // If not, try converting it to a DateTime object
-        try {
-            $date = new \DateTime($this->date);
-            return $date->format('d-m-Y');
-        } catch (\Exception $e) {
-            // Handle any errors during conversion
-            return 'Invalid Date';
-        }
+    public function getTimeInAttribute($value)
+    {
+        return Carbon::parse($value)->format('H:i');
+    }
+
+    public function getTimeOutAttribute($value)
+    {
+        return Carbon::parse($value)->format('H:i');
     }
 
     public function user()
