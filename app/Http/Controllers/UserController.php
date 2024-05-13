@@ -27,28 +27,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email',
-            'required|min:8|regex:/^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i',
-        ], [
-            'name.required' => 'Nama tidak boleh kosong',
-            'name.min' => 'Nama harus berisi minimal 3 huruf',
-            'email.required' => 'Email tidak boleh kosong dan harus diisi dengan benar',
-            'email.email' => 'Email yang anda input tidak valid',
-            'password.required' => 'Password harus diisi',
-            'password.min' => 'Password minimal 8 karakter',
-            'password.regex' => 'Password harus terdiri dari minimal 8 karakter dengan kombinasi huruf kecil, dan angka',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'nim' => $request->nim,
-            'nip' => $request->nip,
-            'role' => $request->role,
             'password' => Hash::make($request->password),
+            'nim' => $request->nim,
             'study_program' => $request->study_program,
             'faculty' => $request->faculty,
+            'nip' => $request->nip,
+            'role' => $request->role,
         ]);
 
         return redirect()->route('users.index')->with('success', 'Data User berhasil dibuat');
