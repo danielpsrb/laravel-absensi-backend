@@ -51,18 +51,17 @@
                                         </div>
                                     </form>
                                 </div>
-
                                 <div class="clearfix mb-3"></div>
                                 <div class="table-responsive">
                                     <table class="table-striped table-hover table">
                                         <tr>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>NIM</th>
-                                            <th>Prodi</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">NIM</th>
+                                            <th class="text-center">Program Studi</th>
                                             <th>NIP</th>
                                             <th>Role</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($users as $user)
                                             <tr>
