@@ -29,8 +29,8 @@ class UsersDataSeeder extends Seeder
             ],
             [
                 'name' => 'Daniel Pasaribu',
-                'email' => 'danielp@example.com',
-                'password' => Hash::make('1234abcd'),
+                'email' => 'danielpsrb@example.com',
+                'password' => Hash::make('danz1234'),
                 'role' => 'user',
             ],
             [
@@ -43,6 +43,30 @@ class UsersDataSeeder extends Seeder
                 'name' => 'Muhammad Yasser',
                 'email' => 'yasser@example.com',
                 'password' => Hash::make('yasser123'),
+                'role' => 'user',
+            ],
+            [
+                'name' => 'Resware Argya Munda',
+                'email' => 'reswara@example.com',
+                'password' => Hash::make('reswara123'),
+                'role' => 'user',
+            ],
+            [
+                'name' => 'Vincent Julio Angdrianto Sompie',
+                'email' => 'vincent@example.com',
+                'password' => Hash::make('vincent123'),
+                'role' => 'user',
+            ],
+            [
+                'name' => 'Alfrets Ebenhaezar Maleke',
+                'email' => 'alfrets@example.com',
+                'password' => Hash::make('alfrets123'),
+                'role' => 'user',
+            ],
+            [
+                'name' => 'John Doe',
+                'email' => 'john@example.com',
+                'password' => Hash::make('johndoe123'),
                 'role' => 'user',
             ]
         ];
