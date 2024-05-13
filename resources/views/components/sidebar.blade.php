@@ -30,6 +30,13 @@
                     <span>Attendances</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('permissions.index') }}" class="nav-link">
+                    <i class="fas fa-columns"></i>
+                    <span>Permission</span>
+                </a>
+            </li>
             {{-- <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Google
@@ -45,7 +52,7 @@
                     <li><a href="gmaps-simple.html">Simple</a></li>
                 </ul>
             </li> --}}
-            
+
             <li class="menu-header">Pages</li>
             <li class="nav-item dropdown">
                 <a href="#"
