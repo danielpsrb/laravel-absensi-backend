@@ -13,6 +13,6 @@ class AttendanceSeeder extends Seeder
      */
     public function run(): void
     {
-        Attendance::factory()->count(5)->create();
+        Attendance::factory()->count(9)->create();
     }
 }
