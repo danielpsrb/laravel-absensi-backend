@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit Profil Perusahaan</h1>
+                <h1>Edit Profil Universitas</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item">Edit Profil Perusahaan</div>
@@ -56,6 +56,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6 col-12">
+                                            <label>Deskripsi Universitas</label>
+                                            <input type="text" name="description" class="form-control" value="{{ $university->description }}">
+                                        </div>
+                                        <div class="form-group col-md-6 col-12">
                                             <label>Latitude</label>
                                             <input type="text" name="latitude" class="form-control"
                                                 value="{{ $university->latitude }}">
@@ -72,7 +76,6 @@
                                         </div>
                                     </div>
                                     <div class="row">
-
                                         <div class="form-group col-md-6 col-12">
                                             <label>Waktu Masuk</label>
                                             <input type="time" name="time_in" class="form-control"
