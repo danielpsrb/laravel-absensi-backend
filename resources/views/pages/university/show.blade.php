@@ -39,7 +39,7 @@
                                         <p>{{ $university->name }}</p>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Alamat Perusahaan</label>
+                                        <label>Alamat Universitas</label>
                                         <p>{{ $university->address }}</p>
                                     </div>
                                 </div>
@@ -51,6 +51,14 @@
                                     <div class="form-group col-md-6 col-12">
                                         <label>Nomor Telepon</label>
                                         <p>{{ $university->phone_number }}</p>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Deskripsi Universitas</label>
+                                        <p>{{ $university->description }}</p>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Jumlah Fakultas</label>
+                                        <p>{{ $university->total_faculty }}</p>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
                                         <label>Radius KM</label>
@@ -68,7 +76,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-
                                     <div class="form-group col-md-6 col-12">
                                         <label>Waktu Masuk</label>
                                         <p>{{ $university->time_in }}</p>
