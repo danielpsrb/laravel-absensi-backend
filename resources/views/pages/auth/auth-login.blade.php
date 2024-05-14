@@ -11,7 +11,7 @@
 @section('main')
     <div class="card card-primary">
         <div class="card-header">
-            <h4>Login</h4>
+            <h4>Welcome, Admin Dashboard</h4>
         </div>
 
         <div class="card-body">
@@ -23,37 +23,37 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                        value="{{ old('email') }}" name="email" tabindex="1">
+                        value="{{ old('email') }}" name="email" tabindex="1" required>
                     @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
+                    <div class="invalid-feedback">
+                        Please Fill in your Email
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <div class="d-block">
                         <label for="password"
-                            class="control-label">Password</label>
-                        <div class="float-right">
-                            <a href="auth-forgot-password"
-                                class="text-small">
-                                Forgot Password?
-                            </a>
-                        </div>
+                            class="control-label">
+                            Password
+                        </label>
+
                     </div>
-                    <input id="password"
-                        type="password"
-                        class="form-control"
-                        name="password"
-                        tabindex="2"
-                        required>
-                    <div class="invalid-feedback">
-                        Please Fill in your Password
+                    <div class="input-group position-relative">
+                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                        <span class="input-group-text">
+                            <img src="{{ asset('img/eye.png') }}" width="20" id="togglePassword" class="password-toggle" style="cursor: pointer" onclick="togglePasswordVisibility()">
+                        </span>
+                        <div class="invalid-feedback">
+                            Please Fill in your Password
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3 d-flex justify-content-between"">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox"
                             name="remember"
@@ -62,6 +62,12 @@
                             id="remember-me">
                         <label class="custom-control-label"
                             for="remember-me">Remember Me</label>
+                    </div>
+                    <div>
+                        <a href="auth-forgot-password"
+                            class="text-small">
+                            Forgot Password?
+                            </a>
                     </div>
                 </div>
 
@@ -75,13 +81,21 @@
             </form>
         </div>
     </div>
-    <div class="text-muted mt-5 text-center">
-        Don't have an account? <a href="auth-register.html">Create One</a>
-    </div>
 @endsection
 
 @push('scripts')
-    <!-- JS Libraies -->
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var toggleButton = document.getElementById("togglePassword");
 
-    <!-- Page Specific JS File -->
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleButton.src = "{{ asset('img/eye-hide.png') }}"; // Mengubah gambar menjadi ikon mata tersembunyi
+            } else {
+                passwordField.type = "password";
+                toggleButton.src = "{{ asset('img/eye.png') }}"; // Mengubah gambar kembali menjadi ikon mata biasa
+            }
+        }
+    </script>
 @endpush
