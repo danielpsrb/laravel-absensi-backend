@@ -64,7 +64,7 @@
                             for="remember-me">Remember Me</label>
                     </div>
                     <div>
-                        <a href="auth-forgot-password"
+                        <a href="{{ route('password.request') }}"
                             class="text-small">
                             Forgot Password?
                             </a>
@@ -79,6 +79,9 @@
                     </button>
                 </div>
             </form>
+        </div>
+        <div class="text-muted mt-15 text-center">
+            Don't have an account ? <a href="{{route('register')}}">Signup Now</a>
         </div>
     </div>
 @endsection
