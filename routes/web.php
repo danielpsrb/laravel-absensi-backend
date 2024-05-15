@@ -11,10 +11,6 @@ Route::get('/', function () {
     return view('pages.auth.auth-login');
 });
 
-Route::get('/auth-forgot-password', function () {
-    return view('pages.auth.auth-forgot-password', ['type_menu' => 'auth']);
-});
-
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
