@@ -23,7 +23,7 @@
                     Histories
                 </div>
                 <div class="search-item">
-                    <a href="#">How to hack NASA using CSS</a>
+                    <a href="#">Artificial Intelligence</a>
                     <a href="#"
                         class="search-close"><i class="fas fa-times"></i></a>
                 </div>
@@ -33,7 +33,7 @@
                         class="search-close"><i class="fas fa-times"></i></a>
                 </div>
                 <div class="search-item">
-                    <a href="#">#Stisla</a>
+                    <a href="#">Sports</a>
                     <a href="#"
                         class="search-close"><i class="fas fa-times"></i></a>
                 </div>
@@ -69,14 +69,6 @@
                 </div>
                 <div class="search-header">
                     Projects
-                </div>
-                <div class="search-item">
-                    <a href="#">
-                        <div class="search-icon bg-danger mr-3 text-white">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        Stisla Admin Template
-                    </a>
                 </div>
                 <div class="search-item">
                     <a href="#">
@@ -249,7 +241,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logged in 5 min ago</div>
-                <a href="features-profile.html"
+                <a href="{{ route('profile') }}"
                     class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
@@ -257,7 +249,7 @@
                     class="dropdown-item has-icon">
                     <i class="fas fa-bolt"></i> Activities
                 </a>
-                <a href="features-settings.html"
+                <a href="{{ route('settings') }}"
                     class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
