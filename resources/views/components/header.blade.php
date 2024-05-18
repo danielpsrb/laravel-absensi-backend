@@ -1,4 +1,4 @@
-<div class="navbar-bg"></div>
+<div class="navbar-bg bg-info"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <form class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
@@ -240,7 +240,9 @@
                 <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name}}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
+                <div class="dropdown-title">
+                    Logged in {{ \Carbon\Carbon::parse(auth()->user()->last_login)->diffForHumans() }}
+                </div>
                 <a href="{{ route('profile') }}"
                     class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
