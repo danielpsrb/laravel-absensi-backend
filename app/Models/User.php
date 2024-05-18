@@ -28,6 +28,7 @@ class User extends Authenticatable
         'faculty',
         'face_embedding',
         'image_url',
+        'last_login',
     ];
 
     /**
@@ -51,5 +52,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //last_login
+    public function updateLastLogin(): void
+    {
+        $this->update(['last_login' => now()]);
     }
 }
