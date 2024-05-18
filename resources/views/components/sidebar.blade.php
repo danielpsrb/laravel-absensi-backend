@@ -1,10 +1,15 @@
-<div class="main-sidebar sidebar-style-2">
+<div class="main-sidebar sidebar-style-2 bg-dark">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="#">Daniel Admin</a>
+            <a href="#">
+                <img alt="image" src="{{ asset('img/attendance-icon.png')}}" width="40" class="header-logo" />
+                <span class="logo-name text-white">ADMIN ATTENDANCE</span>
+            </a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="#">Admin</a>
+            <a href="#">
+                <img alt="image" src="{{ asset('img/attendance-icon.png')}}" width="30" class="header-logo" />
+            </a>
         </div>
         <ul class="sidebar-menu">
 
@@ -14,74 +19,50 @@
 
             <li class="nav-item">
                 <a href="{{ route('users.index') }}"
-                    class="nav-link"><i class="fas fa-columns"></i> <span>Users</span>
+                    class="nav-link"><i class="fas fa-user"></i> <span>Users</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="{{ route('universites.show', 1) }}"
-                    class="nav-link"><i class="fas fa-columns"></i> <span>University</span>
+                    class="nav-link"><i class="fas fa-university"></i> <span>University</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="{{ route('attendances.index') }}" class="nav-link">
-                    <i class="fas fa-columns"></i>
+                    <i class="fas fa-calendar-check"></i>
                     <span>Attendances</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="{{ route('permissions.index') }}" class="nav-link">
-                    <i class="fas fa-columns"></i>
+                    <i class="fas fa-key"></i>
                     <span>Permission</span>
                 </a>
             </li>
 
-            <li class="menu-header">Pages</li>
-            <li class="nav-item dropdown">
-                <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Features</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is('features-activities') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('features-activities') }}">Activities</a>
-                    </li>
-                    <li class="{{ Request::is('features-post-create') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('create')}}">Post Create</a>
-                    </li>
-                    <li class="{{ Request::is('features-post') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('show') }}">Posts</a>
-                    </li>
-                    <li class="{{ Request::is('features-profile') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('features-profile') }}">Profile</a>
-                    </li>
-                    <li class="{{ Request::is('features-settings') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('settings') }}">Settings</a>
-                    </li>
-                    <li class="{{ Request::is('features-setting-detail') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('features-setting-detail') }}">Setting Detail</a>
-                    </li>
-                    <li class="{{ Request::is('features-tickets') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('features-tickets') }}">Tickets</a>
-                    </li>
-                </ul>
+            <li class="menu-header">Pages Features</li>
+            <li class="nav-item">
+                <a href="{{ url('features-activities') }}"
+                    class="nav-link"><i class="fas fa-history"></i> <span>Activities</span>
+                </a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i>
-                    <span>Utilities</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is('utilities-contact') ? 'active' : '' }}">
-                        <a href="{{ url('utilities-contact') }}">Contact</a>
-                    </li>
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('contact') }}"
+                    class="nav-link"><i class="fas fa-address-book"></i> <span>Contact</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('create') }}"
+                    class="nav-link"><i class="fas fa-plus"></i> <span>Create Post</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('show') }}"
+                    class="nav-link"><i class="fas fa-list"></i> <span>See All Post</span>
+                </a>
             </li>
         </ul>
     </aside>
