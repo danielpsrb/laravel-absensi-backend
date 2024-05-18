@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
 @endpush
 
-
 @section('main')
     <div class="main-content">
         <section class="section">
@@ -88,15 +87,13 @@
                                                         <a href='{{ route('users.edit', $user->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
-                                                            Edit
                                                         </a>
                                                         <form action="{{ route('users.destroy', $user->id) }}"
-                                                            method="POST" class="ml-2">
-                                                            <input type="hidden" name="_method" value="DELETE" />
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete
+                                                            method="POST" class="ml-2 confirm-delete">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="btn btn-sm btn-danger btn-icon">
+                                                                <i class="fas fa-trash-alt"></i>
                                                             </button>
                                                         </form>
                                                     </div>
@@ -118,9 +115,43 @@
 @endsection
 
 @push('scripts')
+
     <!-- JS Libraies -->
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/features-posts.js') }}"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // Menggunakan event handler 'submit' untuk form dengan kelas 'confirm-delete'
+            $('.confirm-delete').submit(function(event) {
+                // Mencegah form submit default
+                event.preventDefault();
+
+                // Menyimpan referensi form yang diklik
+                var form = $(this);
+
+                // Menampilkan SweetAlert untuk konfirmasi penghapusan
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: 'Data yang dihapus tidak dapat dikembalikan!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    // Jika pengguna mengkonfirmasi penghapusan
+                    if (result.isConfirmed) {
+                        // Submit form
+                        form.unbind('submit').submit();
+                    }
+                });
+            });
+        });
+    </script>
 @endpush
