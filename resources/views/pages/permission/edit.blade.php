@@ -67,7 +67,7 @@
                                             <label>Bukti Dukung</label>
                                             <p>
                                                 @if ($permission->image)
-                                                    <img src="{{ asset('storage/permission/' . $permission->image) }}"
+                                                    <img src="{{ asset('storage/permissions/' . $permission->image) }}"
                                                         alt="Bukti Dukung" style="max-width: 100%; height: auto;">
                                                 @else
                                                     Tidak ada bukti dukung
@@ -77,10 +77,10 @@
                                         <div class="form-group col-md-6 col-12">
                                             <label>Status</label>
                                             <select name="status" class="form-control" style="height: 40px;">
-                                                <option value="approved" {{ $permission->status ? 'selected' : '' }}>
+                                                <option value="approved" {{ $permission->status === 'approved' ? 'selected' : '' }}>
                                                     Disetujui
                                                 </option>
-                                                <option value="rejected" {{ !$permission->status ? 'selected' : '' }}>
+                                                <option value="rejected" {{ $permission->status === 'rejected' ? 'selected' : '' }}>
                                                     Tidak Disetujui
                                                 </option>
                                                 <option value="pending" {{ $permission->status === 'pending' ? 'selected' : '' }}>

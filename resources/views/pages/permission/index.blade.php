@@ -84,7 +84,7 @@
                                                     @if ($permission->status == 'approved')
                                                         Approved
                                                     @elseif ($permission->status == 'rejected')
-                                                        Rejected
+                                                        Not Approved
                                                     @else
                                                         Pending
                                                     @endif
@@ -95,8 +95,7 @@
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('permissions.show', $permission->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
-                                                            <i class="fas fa-edit"></i>
-                                                            Detail
+                                                            <i class="fas fa-circle-info"></i>
                                                         </a>
 
                                                         <form action="{{ route('permissions.destroy', $permission->id) }}"
@@ -105,7 +104,7 @@
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete
+                                                                <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
                                                     </div>
