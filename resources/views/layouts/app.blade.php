@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
         name="viewport">
-    <title>@yield('title') &mdash; Stisla</title>
+    <title>@yield('title') &mdash; Attendance</title>
+    <link rel="icon" type="image/png" href="{{asset('img/attendance-icon.png')}}">
 
     <!-- General CSS Files -->
     <link rel="stylesheet"
