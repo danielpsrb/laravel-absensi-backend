@@ -17,16 +17,16 @@ class ProfileController extends Controller
     //update-profile
     public function update(Request $request)
     {
-        $user = User::find(Auth::user()->id);
+        $user = Auth::user();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
         return redirect()->route('profile')->with('success', 'Profile updated successfully');
     }
 
-    public function destroy(Request $request)
+    public function destroy()
     {
-        $user = User::find(Auth::user()->id);
+        $user =Auth::user();
         $user->delete();
         return redirect()->route('login')->with('success', 'Profile deleted successfully');
     }
