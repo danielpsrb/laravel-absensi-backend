@@ -49,72 +49,50 @@
                                 </div>
                             </div>
                             <div class="profile-widget-description">
-                                <div class="profile-widget-name">{{ auth()->user()->name}} <div
-                                        class="text-muted d-inline font-weight-normal">
-                                        <div class="slash"></div> Web Developer
-                                    </div>
+                                <label>Name</label>
+                                <div class="profile-widget-name">{{ auth()->user()->name}}
+                                    <div class="text-muted d-inline font-weight-normal"></div>
                                 </div>
-                                {{ auth()->user()->name}} is a superhero name in <b>Indonesia</b>, especially in my family. He is not a
-                                fictional character but an original hero in my family, a hero for his children and for his
-                                wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with
-                                <b>'John Doe'</b>.
                             </div>
-                            <div class="card-footer text-center">
-                                <div class="font-weight-bold mb-2">Follow {{explode(' ', auth()->user()->name)[0]}} On</div>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-facebook mr-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-twitter mr-1">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-github mr-1">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                            <div class="profile-widget-description">
+                                <label>Email</label>
+                                <div class="profile-widget-name">{{ auth()->user()->email}}
+                                    <div class="text-muted d-inline font-weight-normal"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-12 col-lg-7">
                         <div class="card">
-                            <form method="post"
+                            <form method="POST"
+                                action="{{ route('profile.update') }}"
                                 class="needs-validation"
                                 novalidate="">
+                                @csrf
+                                @method('PATCH')
                                 <div class="card-header">
                                     <h4>Edit Profile</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-md-6 col-12">
-                                            <label>First Name</label>
+                                            <label for="name">Name</label>
                                             <input type="text"
+                                                id="name"
+                                                name="name"
                                                 class="form-control"
-                                                value="{{explode(' ', auth()->user()->name)[0]}}"
+                                                value="{{auth()->user()->name}}"
                                                 required="">
                                             <div class="invalid-feedback">
-                                                Please fill in the first name
+                                                Please fill in the Name
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6 col-12">
-                                            <label>Last Name</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                value="{{explode(' ', auth()->user()->name)[1]}}"
-                                                required="">
-                                            <div class="invalid-feedback">
-                                                Please fill in the last name
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-7 col-12">
-                                            <label>Email</label>
-                                            <input type="email"
+                                            <label for="email">Email</label>
+                                            <input
+                                                type="text"
+                                                id="email"
+                                                name="email"
                                                 class="form-control"
                                                 value="{{auth()->user()->email}}"
                                                 required="">
@@ -122,37 +100,75 @@
                                                 Please fill in the email
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-5 col-12">
-                                            <label>Phone</label>
-                                            <input type="tel"
+                                    </div>
+                                </div>
+                                <div class="card-footer text-left">
+                                    <button class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card">
+                            <form method="POST"
+                                action="{{ route('profile.change-password') }}"
+                                class="needs-validation"
+                                novalidate="">
+                                @csrf
+                                @if (session('status'))
+                                    <div class="alert alert-success">
+                                        {{ session('status') }}
+                                    </div>
+                                @elseif (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                <div class="card-header">
+                                    <h4>Update Password</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-12">
+                                            <label for="current_pwd">Current Password</label>
+                                            <input type="password"
+                                                id="current_pwd"
                                                 class="form-control"
-                                                value="">
+                                                name="current_pwd"
+                                                required="">
+                                            <div class="invalid-feedback">
+                                                Please fill in the current password
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-12">
-                                            <label>Bio</label>
-                                            <textarea class="form-control summernote-simple">{{ auth()->user()->name}} is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-12 mb-0">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox"
-                                                    name="remember"
-                                                    class="custom-control-input"
-                                                    id="newsletter">
-                                                <label class="custom-control-label"
-                                                    for="newsletter">Subscribe to newsletter</label>
-                                                <div class="text-muted form-text">
-                                                    You will get new information about products, offers and promotions
+                                        <div class="form-group col-md-6 col-12">
+                                            <label for="new_pwd">New Password</label>
+                                            <input
+                                                id="new_pwd"
+                                                name="new_pwd"
+                                                type="password"
+                                                class="form-control pwstrength @error('password') is-invalid @enderror"
+                                                data-indicator="pwindicato"
+                                            >
+                                            @error('password')
+                                                <div class="alert alert-danger mt-2">
+                                                    <strong>{{ $message }}</strong>
                                                 </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6 col-12">
+                                            <label for="confirm_pwd">Confirm Password</label>
+                                            <input
+                                                id="confirm_pwd"
+                                                type="password"
+                                                class="form-control"
+                                                name="confirm_pwd"
+                                                required="">
+                                            <div class="invalid-feedback">
+                                                Please fill in the confirm password
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer text-right">
-                                    <button class="btn btn-primary">Save Changes</button>
+                                <div class="card-footer text-left">
+                                    <button class="btn btn-primary">Save</button>
                                 </div>
                             </form>
                         </div>
