@@ -11,7 +11,8 @@ class ProfileController extends Controller
     //index
     public function index()
     {
-        return view('pages.profile.feature-profile');
+        $user = auth()->user();
+        return view('pages.profile.feature-profile', compact('user'));
     }
 
     //update-profile
@@ -20,8 +21,13 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->name = $request->name;
         $user->email = $request->email;
+
+        $image = $request->file('photo');
+        $imageName = $image->hashName();
+        $image->storeAs('public/profiles', $imageName);
+        $user->image_url = $imageName;
         $user->save();
-        return redirect()->route('profile')->with('success', 'Profile updated successfully');
+        return redirect()->route('profile')->with('status', 'Profile updated successfully');
     }
 
     public function destroy()
