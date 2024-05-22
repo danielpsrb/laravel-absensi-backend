@@ -31,9 +31,8 @@
                 <p class="section-lead">
                     You can manage all Users, such as editing, deleting and more.
                 </p>
-
                 <div class="row mt-4">
-                    <div class="col-12">
+                    <div class="col-15">
                         <div class="card">
                             <div class="card-header">
                                 <h4>All Posts</h4>
@@ -54,33 +53,43 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table-hover table">
                                         <tr>
-                                            <th>Name</th>
+                                            <th class="text-center">Name</th>
                                             <th class="text-center">Email</th>
                                             <th class="text-center">NIM</th>
                                             <th class="text-center">Program Studi</th>
                                             <th>NIP</th>
-                                            <th>Role</th>
+                                            <th class="text-center">Role</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($users as $user)
                                             <tr>
                                                 <td>
-                                                    {{ $user->name }}
+                                                    <span>
+                                                        {{ $user->name }}
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     {{ $user->email }}
                                                 </td>
                                                 <td>
-                                                    {{ $user->nim }}
+                                                    <span class="badge badge-light text-dark">
+                                                        {{ $user->nim }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $user->study_program }}
+                                                    <span class="badge badge-primary">
+                                                        {{ $user->study_program }}
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     {{ $user->nip }}
                                                 </td>
                                                 <td>
-                                                    {{ $user->role }}
+                                                    @if ($user->role === 'admin' || $user->role === 'staff admin')
+                                                        <span class="badge badge-warning">Admin</span>
+                                                    @elseif($user->role === 'user')
+                                                        <span class="badge badge-success">User</span>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">

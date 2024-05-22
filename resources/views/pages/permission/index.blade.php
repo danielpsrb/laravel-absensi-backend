@@ -55,42 +55,43 @@
                                 <div class="clearfix mb-3"></div>
 
                                 <div class="table-responsive">
-                                    <table class="table-striped table">
+                                    <table class="table-striped table-hover table">
                                         <tr>
 
                                             <th>Name</th>
                                             <th>Program Studi</th>
                                             <th>Fakultas</th>
                                             <th>Date Permission</th>
-                                            <th>Status</th>
-
+                                            <th class="text-center">Status</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($permissions as $permission)
                                             <tr>
-
-                                                <td>{{ $permission->user->name }}
+                                                <td>
+                                                    <span>{{ $permission->user->name }}</span>
                                                 </td>
                                                 <td>
-                                                    {{ $permission->user->study_program }}
+                                                    <span class="badge badge-primary">{{ $permission->user->study_program }}</span>
                                                 </td>
                                                 <td>
-                                                    {{ $permission->user->faculty }}
+                                                    <span class="badge badge-primary">
+                                                        {{ $permission->user->faculty }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $permission->date_permission }}
+                                                    <span class="badge badge-light text-dark">
+                                                        <i class="fas fa-calendar-alt"></i> {{ $permission->date_permission }}
+                                                    </span>
                                                 </td>
                                                 <td>
                                                     @if ($permission->status == 'approved')
-                                                        Approved
+                                                        <div class="badge badge-success">Approved</div>
                                                     @elseif ($permission->status == 'rejected')
-                                                        Not Approved
+                                                        <div class="badge badge-danger">Not Approved</div>
                                                     @else
-                                                        Pending
+                                                        <div class="badge badge-warning">Pending</div>
                                                     @endif
                                                 </td>
-
-
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('permissions.show', $permission->id) }}'
