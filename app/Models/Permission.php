@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,11 @@ class Permission extends Model
         'image',
         'status',
     ];
+
+    public function getDatePermissionAttribute($value)
+    {
+        return Carbon::parse($value)->translatedFormat('d F Y');
+    }
 
     public function user()
     {
