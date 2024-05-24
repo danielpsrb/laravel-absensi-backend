@@ -12,12 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //department atau jurusan
-            $table->string('study_program')->nullable();
-
-            //faculty atau fakultas
-            $table->string('faculty')->nullable();
-
+            
             //face_embedding
             $table->text('face_embedding')->nullable();
 
@@ -32,8 +27,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('study_program');
-            $table->dropColumn('faculty');
             $table->dropColumn('face_embedding');
             $table->dropColumn('image_url');
         });
