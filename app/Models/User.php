@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -24,8 +25,8 @@ class User extends Authenticatable
         'nim',
         'nip',
         'role',
-        'study_program',
-        'faculty',
+        'department_id',
+        'faculty_id',
         'face_embedding',
         'image_url',
         'last_login',
@@ -58,5 +59,17 @@ class User extends Authenticatable
     public function updateLastLogin(): void
     {
         $this->update(['last_login' => now()]);
+    }
+
+    // satu user memiliki satu fakultas
+    public function faculty(): BelongsTo
+    {
+        return $this->belongsTo(Faculty::class);
+    }
+
+    // satu user memiliki satu program studi
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
     }
 }
