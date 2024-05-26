@@ -30,6 +30,18 @@
             </li>
 
             <li class="nav-item">
+                <a href="{{ route('departments.index') }}"
+                    class="nav-link"><i class="fas fa-building"></i> <span>Study Program</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('faculties.index') }}"
+                    class="nav-link"><i class="fas fa-building"></i> <span>Fakultas</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="{{ route('attendances.index') }}" class="nav-link">
                     <i class="fas fa-calendar-check"></i>
                     <span>Attendances</span>
