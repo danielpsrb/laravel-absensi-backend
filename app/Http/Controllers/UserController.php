@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +22,9 @@ class UserController extends Controller
     //create
     public function create()
     {
-        return view('pages.users.create');
+        $departments = Department::all();
+        $faculties = Faculty::all();
+        return view('pages.users.create', compact('departments', 'faculties'));
     }
 
     //store
@@ -30,6 +34,9 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i',
+            'department_id' => 'required|exists:departments,id',
+            'faculty_id' => 'required|exists:faculties,id',
+
         ]);
 
         User::create([
@@ -37,8 +44,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'nim' => $request->nim,
-            'study_program' => $request->study_program,
-            'faculty' => $request->faculty,
+            'department_id' => $request->department_id,
+            'faculty_id' => $request->faculty_id,
             'nip' => $request->nip,
             'role' => $request->role,
         ]);
@@ -49,7 +56,9 @@ class UserController extends Controller
     //tampilkan halaman edit users
     public function edit(User $user)
     {
-        return view('pages.users.edit', compact('user'));
+        $departments = Department::all();
+        $faculties = Faculty::all();
+        return view('pages.users.edit', compact('user', 'departments', 'faculties'));
     }
 
     //update users
@@ -66,8 +75,8 @@ class UserController extends Controller
             'nim' => $request->nim,
             'nip' => $request->nip,
             'role' => $request->role,
-            'study_program' => $request->study_program,
-            'faculty' => $request->faculty,
+            'department_id' => $request->department_id,
+            'faculty_id' => $request->faculty_id,
         ]);
 
         //jika password diisi
