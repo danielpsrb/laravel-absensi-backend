@@ -44,7 +44,7 @@
                                 <div class="float-right">
                                     <form method="GET" action="{{ route('attendances.index') }}">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search by patient name" name="name">
+                                            <input type="text" class="form-control" placeholder="Search by user name" name="name">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
@@ -62,38 +62,49 @@
                                             <th>Data Tangal</th>
                                             <th>Time in</th>
                                             <th>Time out</th>
-                                            <th>Latlong in</th>
-                                            <th>Latlong out</th>
+                                            <th class="text-center">Latlong in</th>
+                                            <th class="text-center">Latlong out</th>
 
                                             <th>Action</th>
                                         </tr>
                                         @foreach ($attendances as $attendance)
                                             <tr>
-
-                                                <td>{{ $attendance->user->name }}
+                                                <td>
+                                                    <span class="badge badge-light">
+                                                        {{ $attendance->user->name }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $attendance->date }}
+                                                    <span class="badge badge-light">
+                                                        <i class="fas fa-calendar-alt"></i> {{ $attendance->date }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $attendance->time_in }}
+                                                    <span class="badge badge-light">
+                                                        <i class="fas fa-clock"></i> {{ $attendance->time_in }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $attendance->time_out }}
+                                                    <span class="badge badge-light">
+                                                        <i class="fas fa-clock"></i> {{ $attendance->time_out }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $attendance->latlon_in }}
+                                                    <span class="badge badge-light">
+                                                        <i class="fas fa-map-marker-alt"></i> {{ $attendance->latlon_in }}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    {{ $attendance->latlon_out }}
+                                                    <span class="badge badge-light">
+                                                        <i class="fas fa-map-marker-alt"></i> {{ $attendance->latlon_out }}
+                                                    </span>
                                                 </td>
 
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('attendances.edit', $attendance->id) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
+                                                            class="btn btn-sm btn-info btn-icon" title="Edit">
                                                             <i class="fas fa-edit"></i>
-                                                            Edit
                                                         </a>
 
                                                         <form action="{{ route('attendances.destroy', $attendance->id) }}"
@@ -101,8 +112,8 @@
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete" title="Delete">
+                                                                <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
                                                     </div>
