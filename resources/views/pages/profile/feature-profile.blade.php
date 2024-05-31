@@ -30,9 +30,12 @@
                     <div class="col-12 col-md-12 col-lg-5">
                         <div class="card profile-widget">
                             <div class="profile-widget-header">
-                                <img alt="image"
-                                    src="{{ asset('img/avatar/avatar-1.png') }}"
-                                    class="rounded-circle profile-widget-picture">
+                                <img
+                                    alt="image"
+                                    src="{{ asset('storage/profiles/' . $user->image_url) }}"
+                                    class="rounded-circle profile-widget-picture"
+                                >
+                                <input type="file" id="avatar" name="image_url" style="display: none;" accept="image/*">
                                 <div class="profile-widget-items">
                                     <div class="profile-widget-item">
                                         <div class="profile-widget-item-label">Posts</div>
@@ -61,15 +64,34 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card profile-widget">
+                            <div class="profile-widget-item">
+                                <div class="profile-widget-description">
+                                    <h5>Delete Account</h5>
+                                    <p>Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.</p>
+                                    <button class="btn btn-danger">Delete account</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-md-12 col-lg-7">
                         <div class="card">
                             <form method="POST"
                                 action="{{ route('profile.update') }}"
                                 class="needs-validation"
-                                novalidate="">
+                                novalidate=""
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
+                                @if (session('status'))
+                                    <div class="alert alert-success">
+                                        {{ session('status') }}
+                                    </div>
+                                @elseif (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
                                 <div class="card-header">
                                     <h4>Edit Profile</h4>
                                 </div>
@@ -100,6 +122,24 @@
                                                 Please fill in the email
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-6 col-12">
+                                            <label>Profile Picture</label>
+                                            <div class="avatar-upload">
+                                                <div>
+                                                    <input
+                                                        type="file"
+                                                        id="imageProfile"
+                                                        name="photo"
+                                                        accept=".png, .jpg, .jpeg"
+                                                        onchange="previewImage(this)"
+                                                    >
+                                                    <label for="imageProfile"></label>
+                                                </div>
+                                                <div class="avatar-preview">
+                                                    <div id="imagePreview"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer text-left">
@@ -109,19 +149,11 @@
                         </div>
                         <div class="card">
                             <form method="POST"
+                                enctype="multipart/form-data"
                                 action="{{ route('profile.change-password') }}"
                                 class="needs-validation"
                                 novalidate="">
                                 @csrf
-                                @if (session('status'))
-                                    <div class="alert alert-success">
-                                        {{ session('status') }}
-                                    </div>
-                                @elseif (session('error'))
-                                    <div class="alert alert-danger">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
                                 <div class="card-header">
                                     <h4>Update Password</h4>
                                 </div>
@@ -184,4 +216,41 @@
     <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
 
     <!-- Page Specific JS File -->
+    <script type="text/javascript">
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#imagePreview").css('background-image', 'url(' + e.target.result + ')');
+                    $("#imagePreview").hide();
+                    $("#imagePreview").fadeIn(700);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endpush
+
+<style>
+    .avatar-upload {
+        position: relative;
+        max-width: 205px;
+    }
+
+    .avatar-upload .avatar-preview {
+        width: 67%;
+        height: 147px;
+        position: relative;
+        border-radius: 3%;
+        border: 6px solid #F8F8F8;
+    }
+
+    .avatar-upload .avatar-preview>div {
+        width: 100%;
+        height: 100%;
+        border-radius: 3%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
