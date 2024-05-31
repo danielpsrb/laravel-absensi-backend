@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\FacultyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -13,9 +17,6 @@ use App\Http\Controllers\UniversityController;
 Route::get('/', function () {
     return view('pages.auth.auth-login');
 });
-
-//Route feature profile
-Route::get('/features-profile', [ProfileController::class, 'profile'])->name('profile');
 
 //Route feature activities
 Route::get('/features-activities', [ProfileController::class, 'activities'])->name('activities');
@@ -40,8 +41,19 @@ Route::post('/features-post/store', [PostController::class, 'store'])->name('sto
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'show'])->name('home');
+
+    Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
+
+    //Route feature profile
+    Route::get('/features-profile', [ProfileController::class, 'index'])->name('profile');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
+
+    Route::post('/profile/change-password', [PasswordController::class, 'changePassword'])->name('profile.change-password');
 
     Route::resource('users', UserController::class);
+    Route::resource('faculties', FacultyController::class);
     Route::resource('universites', UniversityController::class);
     Route::resource('attendances', AttendanceController::class);
     Route::resource('permissions', PermissionController::class);
