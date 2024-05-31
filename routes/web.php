@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('pages.auth.auth-login');
 });
 
+//Route feature contact
+Route::get('/features-contact', [ContactController::class, 'show'])->name('contact');
+
+
 //Route feature activities
 Route::get('/features-activities', [ProfileController::class, 'activities'])->name('activities');
 
