@@ -78,7 +78,7 @@
                                                 </td>
                                                 <td>
                                                     <span class="badge badge-primary">
-                                                        {{ $user->study_program }}
+                                                        {{ $user->department->name }}
                                                     </span>
                                                 </td>
                                                 <td>
@@ -94,14 +94,14 @@
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('users.edit', $user->id) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
+                                                            class="btn btn-sm btn-info btn-icon" title="Edit">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
                                                         <form action="{{ route('users.destroy', $user->id) }}"
                                                             method="POST" class="ml-2 confirm-delete">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button class="btn btn-sm btn-danger btn-icon">
+                                                            <button class="btn btn-sm btn-danger btn-icon" title="Delete">
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </button>
                                                         </form>

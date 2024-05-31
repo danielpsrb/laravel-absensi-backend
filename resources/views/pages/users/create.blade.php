@@ -87,31 +87,35 @@
                                 <input type="number" class="form-control" name="nim">
                             </div>
                             <div class="form-group">
-                                <label>Program Studi</label>
-                                <input type="text"
-                                    class="form-control @error('study_program')
-                                is-invalid
-                            @enderror"
-                                    name="study_program">
-                                @error('study_program')
+                                <label>Department</label>
+                                <select class="form-control @error('department_id') is-invalid @enderror" name="department_id">
+                                    <option value="">Pilih Program Studi</option>
+                                    @foreach($departments as $department)
+                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('department_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label>Fakultas</label>
-                                <input type="text"
-                                    class="form-control @error('faculty')
-                                is-invalid
-                            @enderror"
-                                    name="facultu">
-                                @error('faculty')
+                                <select class="form-control @error('faculty_id') is-invalid @enderror" name="faculty_id">
+                                    <option value="">Pilih Fakultas</option>
+                                    @foreach($faculties as $faculty)
+                                        <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('faculty_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label>NIP <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" name="nip">
