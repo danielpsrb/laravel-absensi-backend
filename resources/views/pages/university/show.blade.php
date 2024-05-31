@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Profile')
+@section('title', 'Profile University')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -60,10 +60,6 @@
                                         <label>Jumlah Fakultas</label>
                                         <p>{{ $university->total_faculty }}</p>
                                     </div>
-                                    <div class="form-group col-md-6 col-12">
-                                        <label>Radius KM</label>
-                                        <p>{{ $university->radius_km }} KM</p>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
@@ -83,6 +79,10 @@
                                     <div class="form-group col-md-6 col-12">
                                         <label>Waktu Pulang</label>
                                         <p>{{ $university->time_out }}</p>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Radius KM</label>
+                                        <p>{{ $university->radius_km }} KM</p>
                                     </div>
                                 </div>
                             </div>
