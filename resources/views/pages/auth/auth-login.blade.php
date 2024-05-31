@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
         name="viewport">
     <title>Login &mdash; Admin</title>
-    <link rel="icon" type="image/png" href="{{asset('img/login-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('img/iconlogin.png')}}">
 
     <!-- General CSS Files -->
     <link rel="stylesheet"
@@ -51,14 +51,16 @@
                                 <label for="email">Email</label>
                                 <input id="email"
                                     type="email"
-                                    class="form-control"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    value="{{ old('email') }}"
                                     name="email"
                                     tabindex="1"
-                                    required
-                                    autofocus>
-                                <div class="invalid-feedback">
-                                    Please fill in your email
-                                </div>
+                                    required>
+                                    @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
@@ -73,7 +75,7 @@
                                     tabindex="2"
                                     required>
                                 <div class="invalid-feedback">
-                                    please fill in your password
+                                    Please fill in your password
                                 </div>
                             </div>
 
@@ -96,7 +98,7 @@
 
                             <div class="form-group text-left">
                                 <button type="submit"
-                                    class="btn btn-primary btn-lg btn-icon icon-right"
+                                    class="btn btn-primary btn-md btn-block block-right"
                                     tabindex="4">
                                     Login
                                 </button>
