@@ -71,11 +71,11 @@
                                                     <span>{{ $permission->user->name }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="badge badge-primary">{{ $permission->user->study_program }}</span>
+                                                    <span class="badge badge-primary">{{ $permission->user->department->name }}</span>
                                                 </td>
                                                 <td>
                                                     <span class="badge badge-primary">
-                                                        {{ $permission->user->faculty }}
+                                                        {{ $permission->user->faculty->name }}
                                                     </span>
                                                 </td>
                                                 <td>
@@ -95,7 +95,7 @@
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('permissions.show', $permission->id) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
+                                                            class="btn btn-sm btn-info btn-icon" title="Show Details">
                                                             <i class="fas fa-circle-info"></i>
                                                         </a>
 
@@ -104,7 +104,7 @@
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete" title="Delete">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
