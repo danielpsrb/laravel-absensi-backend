@@ -17,18 +17,34 @@ class ProfileController extends Controller
 
     //update-profile
     public function update(Request $request)
-    {
-        $user = Auth::user();
-        $user->name = $request->name;
-        $user->email = $request->email;
+{
+    $user = Auth::user();
 
+    // Validasi data yang diterima
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+        'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    // Memperbarui nama dan email
+    $user->name = $request->name;
+    $user->email = $request->email;
+
+    // Memeriksa apakah ada file foto yang diunggah
+    if ($request->hasFile('photo')) {
         $image = $request->file('photo');
         $imageName = $image->hashName();
         $image->storeAs('public/profiles', $imageName);
         $user->image_url = $imageName;
-        $user->save();
-        return redirect()->route('profile')->with('status', 'Profile updated successfully');
     }
+
+    // Menyimpan perubahan
+    $user->save();
+
+    return redirect()->route('profile')->with('status', 'Profile updated successfully');
+    }
+
 
     public function destroy()
     {
