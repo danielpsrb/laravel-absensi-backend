@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="form-group col-md-6 col-12">
                                             <label>Fakultas</label>
-                                            <p>{{ $permission->user->faculty }}</p>
+                                            <p>{{ $permission->user->faculty->name }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -70,7 +70,7 @@
                                                     <img src="{{ asset('storage/permissions/' . $permission->image) }}"
                                                         alt="Bukti Dukung" style="max-width: 100%; height: auto;">
                                                 @else
-                                                    Tidak ada bukti dukung
+                                                    Tidak ada bukti pendukung
                                                 @endif
                                             </p>
                                         </div>
