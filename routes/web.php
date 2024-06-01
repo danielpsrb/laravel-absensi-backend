@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('pages.auth.auth-login');
 });
 
-//Route feature contact
-Route::get('/features-contact', [ContactController::class, 'show'])->name('contact');
-
-
 //Route feature activities
 Route::get('/features-activities', [ProfileController::class, 'activities'])->name('activities');
 
@@ -48,10 +44,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/home', [HomeController::class, 'show'])->name('home');
 
     Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
-
-    // Route::get('/faculties', [FacultyController::class, 'index'])->name('faculties.index');
-    // Route::get('/faculties/{id}/edit', [FacultyController::class, 'edit'])->name('faculties.edit');
-    // Route::patch('/faculties/{id}/update', [FacultyController::class, 'update'])->name('faculties.update');
 
     //Route feature profile
     Route::get('/features-profile', [ProfileController::class, 'index'])->name('profile');
