@@ -70,7 +70,7 @@
                                                     <img src="{{ asset('storage/permissions/' . $permission->image) }}"
                                                         alt="Bukti Dukung" style="max-width: 100%; height: auto;">
                                                 @else
-                                                    Tidak ada bukti dukung
+                                                    Tidak ada bukti pendukung
                                                 @endif
                                             </p>
                                         </div>

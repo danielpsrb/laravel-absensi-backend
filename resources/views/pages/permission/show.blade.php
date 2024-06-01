@@ -72,7 +72,7 @@
                                                         <img src="{{ asset('storage/permissions/' . $permission->image) }}" alt="Bukti Dukung" class="img-thumbnail mb-3" style="max-width: 200px">
                                                     </a>
                                                 @else
-                                                    <p class="badge badge-info">Tidak ada bukti dukung</p>
+                                                    <p class="badge badge-info">Tidak ada bukti pendukung</p>
                                                 @endif
                                             </div>
                                         </div>
