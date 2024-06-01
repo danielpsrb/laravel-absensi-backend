@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function show()
     {
-        $totalUsers = User::count();
-        return view('pages.dashboard', compact('totalUsers'));
+        $totalMahasiswa = User::where('role', 'user')->count();
+        return view('pages.dashboard', compact('totalMahasiswa'));
     }
 }
