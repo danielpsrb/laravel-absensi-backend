@@ -44,11 +44,11 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
                                         <label>Program Studi</label>
-                                        <p>{{ $permission->user->study_program }}</p>
+                                        <p>{{ $permission->user->department->name }}</p>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
                                         <label>Fakultas</label>
-                                        <p>{{ $permission->user->faculty }}</p>
+                                        <p>{{ $permission->user->faculty->name }}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -72,7 +72,7 @@
                                                         <img src="{{ asset('storage/permissions/' . $permission->image) }}" alt="Bukti Dukung" class="img-thumbnail mb-3" style="max-width: 200px">
                                                     </a>
                                                 @else
-                                                    <p>Tidak ada bukti dukung</p>
+                                                    <p class="badge badge-info">Tidak ada bukti dukung</p>
                                                 @endif
                                             </div>
                                         </div>

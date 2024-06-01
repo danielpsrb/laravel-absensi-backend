@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="form-group col-md-6 col-12">
                                             <label>Fakultas</label>
-                                            <p>{{ $permission->user->faculty }}</p>
+                                            <p>{{ $permission->user->faculty->name }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
