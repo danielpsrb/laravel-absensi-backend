@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\Faculty;
 use Illuminate\Http\Request;
+use App\Exports\ExportUser;
+use App\Imports\UsersImport;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+
 class UserController extends Controller
 {
     //index
@@ -17,6 +21,17 @@ class UserController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
         return view('pages.users.index', compact('users'));
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new ExportUser, 'users.xlsx');
+    }
+
+    public function import_excel(Request $request)
+    {
+        Excel::import(new UsersImport, $request->file('excel_file'));
+        return redirect()->route('users.index')->with('success', 'Data User berhasil diimport');
     }
 
     //create
