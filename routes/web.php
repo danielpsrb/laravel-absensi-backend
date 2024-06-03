@@ -21,6 +21,9 @@ Route::get('/', function () {
 //Route feature contact
 Route::get('/features-contact', [ContactController::class, 'show'])->name('contact');
 
+Route::get('/users/export/excel', [UserController::class, 'export_excel'])->name('users.export.excel');
+Route::post('/import-excel', [UserController::class, 'import_excel'])->name('users.import.excel');
+
 
 //Route feature activities
 Route::get('/features-activities', [ProfileController::class, 'activities'])->name('activities');
