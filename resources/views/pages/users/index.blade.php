@@ -33,7 +33,7 @@
                     </a>
                 </div>
                 <div class="section-header-button">
-                    <a href="{{ route('users.export.excel') }}" class="btn btn-primary">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exportExcelModal">
                         <i class="fas fa-file-export"></i> Export Excel
                     </a>
                 </div>
@@ -81,7 +81,7 @@
         </section>
     </div>
 
-    //full code modal import excel
+    {{-- modal import excel --}}
     <div class="modal fade" id="importExcelModal" tabindex="1" role="dialog" aria-labelledby="importExcelModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -95,7 +95,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="file" class="form-control" id="file" name="excel_file" required>
+                            <input type="file" class="form-control" id="file" name="import_excel" accept=".csv,.xlsx,.xls">
                         </div>
                     </div>
                     <div class="modal-footer justify-content-center">
@@ -107,6 +107,32 @@
         </div>
     </div>
 
+    <!-- Export Excel Modal -->
+    <div class="modal fade" id="exportExcelModal" tabindex="-1" role="dialog" aria-labelledby="exportExcelModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exportExcelModalLabel">Export Excel</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="exportForm" method="GET" action="{{ route('users.export.excel') }}">
+                        <div class="form-group">
+                            <select class="form-control" id="exportFormat" name="format_file" required>
+                                <option value="-" disabled selected>Pilih format</option>
+                                <option value="xlsx">XLSX</option>
+                                <option value="xls">XLS</option>
+                                <option value="csv">CSV</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" onclick="document.getElementById('exportForm').submit();">Export</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
