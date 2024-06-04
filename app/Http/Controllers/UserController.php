@@ -30,6 +30,13 @@ class UserController extends Controller
 
     public function import_excel(Request $request)
     {
+        $request->validate([
+            'excel_file' => [
+                'required',
+                'mimes:xlsx,xls,csv',
+            ]
+            ]);
+
         Excel::import(new UsersImport, $request->file('excel_file'));
         return redirect()->route('users.index')->with('success', 'Data User berhasil diimport');
     }
