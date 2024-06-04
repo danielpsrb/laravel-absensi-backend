@@ -23,19 +23,27 @@ class UserController extends Controller
         return view('pages.users.index', compact('users'));
     }
 
-    public function export_excel()
+    public function export_excel(Request $request)
     {
-        return Excel::download(new ExportUser, 'users.xlsx');
+        if($request->format_file == 'xlsx') {
+            $filename = 'users-'.date('d-m-Y').'.xlsx';
+            return Excel::download(new ExportUser, $filename);
+        }
+        elseif($request->format_file == 'xls') {
+            $filename = 'users-'.date('d-m-Y').'.xls';
+            return Excel::download(new ExportUser, $filename);
+        }
+        else {
+            $filename = 'users-'.date('d-m-Y').'.csv';
+            return Excel::download(new ExportUser, $filename);
+        }
     }
 
     public function import_excel(Request $request)
     {
         $request->validate([
-            'excel_file' => [
-                'required',
-                'mimes:xlsx,xls,csv',
-            ]
-            ]);
+            'import_excel' => 'required',
+        ]);
 
         Excel::import(new UsersImport, $request->file('excel_file'));
         return redirect()->route('users.index')->with('success', 'Data User berhasil diimport');
