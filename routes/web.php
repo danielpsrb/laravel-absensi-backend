@@ -46,9 +46,9 @@ Route::get('/features-post/create', [PostController::class, 'create'])->name('cr
 //Route feature post
 Route::post('/features-post/store', [PostController::class, 'store'])->name('store');
 
-Route::group(['middleware' => 'admin'], function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/home', [HomeController::class, 'show'])->name('home');
+Route::middleware(['admin', 'auth'])->group(function () {
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('home', [HomeController::class, 'show'])->name('home');
 
     Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
 
