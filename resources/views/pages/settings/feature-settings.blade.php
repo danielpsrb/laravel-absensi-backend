@@ -24,81 +24,44 @@
                 </p>
 
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card card-large-icons">
-                            <div class="card-icon bg-primary text-white">
-                                <i class="fas fa-cog"></i>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Two Factor Authentication</h4>
                             </div>
                             <div class="card-body">
-                                <h4>General</h4>
-                                <p>General settings such as, site title, site description, address and so on.</p>
-                                <a href="{{ route('setting-detail') }}"
-                                    class="card-cta">Change Setting <i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card card-large-icons">
-                            <div class="card-icon bg-primary text-white">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div class="card-body">
-                                <h4>SEO</h4>
-                                <p>Search engine optimization settings, such as meta tags and social media.</p>
-                                <a href="{{ route('setting-detail') }}"
-                                    class="card-cta">Change Setting <i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card card-large-icons">
-                            <div class="card-icon bg-primary text-white">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="card-body">
-                                <h4>Email</h4>
-                                <p>Email SMTP settings, notifications and others related to email.</p>
-                                <a href="{{ route('setting-detail') }}"
-                                    class="card-cta">Change Setting <i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card card-large-icons">
-                            <div class="card-icon bg-primary text-white">
-                                <i class="fas fa-power-off"></i>
-                            </div>
-                            <div class="card-body">
-                                <h4>System</h4>
-                                <p>PHP version settings, time zones and other environments.</p>
-                                <a href="{{ route('setting-detail') }}"
-                                    class="card-cta">Change Setting <i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card card-large-icons">
-                            <div class="card-icon bg-primary text-white">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div class="card-body">
-                                <h4>Security</h4>
-                                <p>Security settings such as firewalls, server accounts and others.</p>
-                                <a href="{{ route('setting-detail') }}"
-                                    class="card-cta">Change Setting <i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card card-large-icons">
-                            <div class="card-icon bg-primary text-white">
-                                <i class="fas fa-stopwatch"></i>
-                            </div>
-                            <div class="card-body">
-                                <h4>Automation</h4>
-                                <p>Settings about automation such as cron job, backup automation and so on.</p>
-                                <a href="{{ route('setting-detail') }}"
-                                    class="card-cta text-primary">Change Setting <i class="fas fa-chevron-right"></i></a>
+                                @if (session('status') == "two-factor-authentication-disabled")
+                                    <div class="alert alert-warning" role="alert">
+                                        Two factor Authentication has been disabled.
+                                    </div>
+                                @endif
+
+                                @if (session('status') == 'two-factor-authentication-enabled')
+                                    <div class="alert alert-success" role="alert">
+                                        Two factor Authentication has been enabled.
+                                    </div>
+                                @endif
+
+                                <form method="POST" action="{{ auth()->user()->two_factor_secret ? route('two-factor.disable') : route('two-factor.enable') }}">
+                                    @csrf
+                                    @if (auth()->user()->two_factor_secret)
+                                        @method('DELETE')
+                                        <div class="pb-5">
+                                            {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                                        </div>
+                                        <div>
+                                            <h3>Recovery Codes:</h3>
+                                            <ul>
+                                                @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes)) as $code)
+                                                    <li>{{ $code }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <button class="btn btn-danger">Disable</button>
+                                    @else
+                                        <button class="btn btn-primary">Enable</button>
+                                    @endif
+                                </form>
                             </div>
                         </div>
                     </div>
