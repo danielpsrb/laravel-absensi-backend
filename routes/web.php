@@ -21,21 +21,11 @@ Route::get('/', function () {
 //Route feature contact
 Route::get('/features-contact', [ContactController::class, 'show'])->name('contact');
 
-Route::get('/users/export/excel', [UserController::class, 'export_excel'])->name('users.export.excel');
-Route::post('/import-excel', [UserController::class, 'import_excel'])->name('users.import.excel');
-
-
 //Route feature activities
 Route::get('/features-activities', [ProfileController::class, 'activities'])->name('activities');
 
 //Route feature tickets
 Route::get('/features-tickets', [ProfileController::class, 'tickets'])->name('tickets');
-
-//Route feature settings
-Route::get('/features-settings', [SettingController::class, 'settings'])->name('settings');
-
-//Route feature settings detail
-Route::get('/features-settings-detail', [SettingController::class, 'settingDetail'])->name('setting-detail');
 
 //Route feature post
 Route::get('/features-post', [PostController::class, 'show'])->name('show');
@@ -56,8 +46,13 @@ Route::middleware(['admin', 'auth'])->group(function () {
     Route::get('/features-profile', [ProfileController::class, 'index'])->name('profile');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
-
     Route::post('/profile/change-password', [PasswordController::class, 'changePassword'])->name('profile.change-password');
+
+    //Route feature settings
+    Route::get('/features-settings', [SettingController::class, 'settings'])->name('settings');
+
+    Route::get('/users/export/excel', [UserController::class, 'export_excel'])->name('users.export.excel');
+    Route::post('/import-excel', [UserController::class, 'import_excel'])->name('users.import.excel');
 
     Route::resource('users', UserController::class);
     Route::resource('faculties', FacultyController::class);
