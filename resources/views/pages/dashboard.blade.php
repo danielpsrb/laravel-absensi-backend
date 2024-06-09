@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'General Dashboard')
+@section('title', 'Dashboard')
 
 @push('style')
 
@@ -91,7 +91,33 @@
                 </div>
                 </div>
             </div>
+
         </section>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel">Booking Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                            <span class="text-danger" id="titleError"></span>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="saveBtn">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -210,11 +236,7 @@
                 {
                     return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1, 'second').utcOffset(false), 'day');
                 },
-
-
-
             });
-
 
             $("#bookingModal").on("hidden.bs.modal", function () {
                 $('#saveBtn').unbind();
@@ -223,7 +245,6 @@
             $('.fc-event').css('font-size', '13px');
             $('.fc-event').css('width', '20px');
             $('.fc-event').css('border-radius', '50%');
-
 
         });
     </script>
