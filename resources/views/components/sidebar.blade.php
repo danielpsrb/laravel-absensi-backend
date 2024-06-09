@@ -31,13 +31,13 @@
 
             <li class="nav-item">
                 <a href="{{ route('departments.index') }}"
-                    class="nav-link"><i class="fas fa-building"></i> <span>Study Program</span>
+                    class="nav-link"><i class="fas fa-graduation-cap"></i> <span>Study Program</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="{{ route('faculties.index') }}"
-                    class="nav-link"><i class="fas fa-building"></i> <span>Fakultas</span>
+                    class="nav-link"><i class="fas fa-building"></i> <span>Faculty</span>
                 </a>
             </li>
 
@@ -61,21 +61,19 @@
                     class="nav-link"><i class="fas fa-history"></i> <span>Activities</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('show') }}"
+                    class="nav-link"><i class="fas fa-list"></i> <span>All Post</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a href="{{ route('contact') }}"
                     class="nav-link"><i class="fas fa-address-book"></i> <span>Contact</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('create') }}"
-                    class="nav-link"><i class="fas fa-plus"></i> <span>Create Post</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('show') }}"
-                    class="nav-link"><i class="fas fa-list"></i> <span>See All Post</span>
-                </a>
-            </li>
+
         </ul>
     </aside>
 </div>
