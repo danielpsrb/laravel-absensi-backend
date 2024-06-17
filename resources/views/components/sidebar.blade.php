@@ -1,9 +1,19 @@
-<div class="main-sidebar sidebar-style-2 bg-dark">
+<style>
+    .logo-name {
+        color: #232323;
+    }
+
+    .bg-custom {
+        background-color: #DCDCDC;
+    }
+</style>
+
+<div class="main-sidebar sidebar-style-2 bg-custom">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="#">
                 <img alt="image" src="{{ asset('img/attendance-icon.png')}}" width="40" class="header-logo" />
-                <span class="logo-name text-white">ADMIN ATTENDANCE</span>
+                <span class="logo-name">Attendance System</span>
             </a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
@@ -17,6 +27,7 @@
                 <a href="/home" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
+            <li class="menu-header">Master Data</li>
             <li class="nav-item">
                 <a href="{{ route('users.index') }}"
                     class="nav-link"><i class="fas fa-user"></i> <span>Users</span>

@@ -1,4 +1,10 @@
-<div class="navbar-bg bg-info"></div>
+<style>
+    .bg-header {
+        background-color: #A9A9A9;
+    }
+</style>
+
+<div class="navbar-bg bg-header"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <form class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
