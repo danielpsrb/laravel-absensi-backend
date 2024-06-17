@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class FacultyController extends Controller
 {
-    //index
     public function index(Request $request)
     {
-        $faculties = Faculty::when($request->input('name'), function ($query, $name) {
+        $faculties = Faculty::with('departments')
+            ->when($request->input('name'), function ($query, $name) {
                 $query->where('name', 'like', '%' . $name . '%');
             })
             ->orderBy('id', 'asc')
@@ -19,6 +19,7 @@ class FacultyController extends Controller
 
         return view('pages.faculty.index', compact('faculties'));
     }
+
 
     //edit
     public function edit($id)

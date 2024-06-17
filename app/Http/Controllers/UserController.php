@@ -13,13 +13,14 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
-    //index
     public function index()
     {
-        //search berdasarkan nama, dengan pagination sebanyak 10
-        $users = User::where('name', 'like', '%'.request('name').'%')
-            ->orderBy('id', 'desc')
-            ->paginate(10);
+        // Search berdasarkan nama, dengan pagination sebanyak 10
+        $users = User::with(['department', 'faculty']) // Eager loading relasi
+                    ->where('name', 'like', '%'.request('name').'%')
+                    ->orderBy('id', 'desc')
+                    ->paginate(10);
+
         return view('pages.users.index', compact('users'));
     }
 
@@ -45,7 +46,7 @@ class UserController extends Controller
             'import_excel' => 'required',
         ]);
 
-        Excel::import(new UsersImport, $request->file('excel_file'));
+        Excel::import(new UsersImport, $request->file('import_excel'));
         return redirect()->route('users.index')->with('success', 'Data User berhasil diimport');
     }
 
