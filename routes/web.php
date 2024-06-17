@@ -16,7 +16,7 @@ use App\Http\Controllers\UniversityController;
 
 Route::get('/', function () {
     return view('pages.auth.auth-login');
-});
+})->middleware('guest');
 
 //Route feature contact
 Route::get('/features-contact', [ContactController::class, 'show'])->name('contact');
