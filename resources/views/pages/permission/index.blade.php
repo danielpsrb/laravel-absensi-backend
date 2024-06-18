@@ -16,9 +16,9 @@
                     <a href="{{ route('permissions.create') }}" class="btn btn-primary">Add New</a>
                 </div> --}}
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Permissions</a></div>
-                    <div class="breadcrumb-item">All Permissions</div>
+                    <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i> Home</a></div>
+                    <div class="breadcrumb-item"><a href="#"><i class="fas fa-key"></i> Permissions</a></div>
+                    <div class="breadcrumb-item"><i class="fas fa-list"></i> All Permissions</div>
                 </div>
             </div>
             <div class="section-body">
