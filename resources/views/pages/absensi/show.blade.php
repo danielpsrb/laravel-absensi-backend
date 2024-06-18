@@ -16,9 +16,9 @@
                     <a href="{{ route('attendances.create') }}" class="btn btn-primary">Add New</a>
                 </div> --}}
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Attendances</a></div>
-                    <div class="breadcrumb-item">All Attendances</div>
+                    <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i> Home</a></div>
+                    <div class="breadcrumb-item"><a href="#"><i class="fas fa-calendar-check"></i> Attendances</a></div>
+                    <div class="breadcrumb-item"><i class="fas fa-list"></i> All Attendances</div>
                 </div>
             </div>
             <div class="section-body">
