@@ -14,8 +14,9 @@
             <div class="section-header">
                 <h1>Profile Universitas</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item">Profile Perusahaan</div>
+                    <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i> Home</a></div>
+                    <div class="breadcrumb-item"><a href="#"><i class="fas fa-graduation-cap"></i> University</a></div>
+                    <div class="breadcrumb-item"><i class="fas fa-list"></i> Data</div>
                 </div>
             </div>
             <div class="section-body">
