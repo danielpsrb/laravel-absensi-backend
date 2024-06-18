@@ -37,6 +37,12 @@
                         <i class="fas fa-file-export"></i> Export Excel
                     </a>
                 </div>
+
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="#"><i class="fas fa-home"></i> Home</a></div>
+                    <div class="breadcrumb-item"><a href="#"><i class="fas fa-user"></i> Users</a></div>
+                    <div class="breadcrumb-item"><i class="fas fa-list"></i> All Users</div>
+                </div>
             </div>
             <div class="section-body">
                 <div class="row">
