@@ -12,6 +12,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UniversityController;
 
 Route::get('/', function () {
@@ -55,6 +56,7 @@ Route::middleware(['admin', 'auth'])->group(function () {
     Route::post('/import-excel', [UserController::class, 'import_excel'])->name('users.import.excel');
 
     Route::resource('users', UserController::class);
+    Route::resource('students', StudentController::class);
     Route::resource('faculties', FacultyController::class);
     Route::resource('universites', UniversityController::class);
     Route::resource('attendances', AttendanceController::class);
