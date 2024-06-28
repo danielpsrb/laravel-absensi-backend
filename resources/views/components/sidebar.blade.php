@@ -35,20 +35,26 @@
             </li>
 
             <li class="nav-item">
+                <a href="{{ route('students.index') }}"
+                    class="nav-link"><i class="fas fa-user-graduate"></i> <span>Students</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="{{ route('universites.show', 1) }}"
                     class="nav-link"><i class="fas fa-university"></i> <span>University</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('departments.index') }}"
-                    class="nav-link"><i class="fas fa-graduation-cap"></i> <span>Study Program</span>
+                <a href="{{ route('faculties.index') }}"
+                    class="nav-link"><i class="fas fa-building"></i> <span>Faculty</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('faculties.index') }}"
-                    class="nav-link"><i class="fas fa-building"></i> <span>Faculty</span>
+                <a href="{{ route('departments.index') }}"
+                    class="nav-link"><i class="fas fa-graduation-cap"></i> <span>Study Program</span>
                 </a>
             </li>
 
