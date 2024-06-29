@@ -16,8 +16,7 @@ class UserController extends Controller
     public function index()
     {
         // Search berdasarkan nama, dengan pagination sebanyak 10
-        $users = User::with(['department', 'faculty']) // Eager loading relasi
-                    ->where('name', 'like', '%'.request('name').'%')
+        $users = User::where('name', 'like', '%' . request('name') . '%')
                     ->orderBy('id', 'desc')
                     ->paginate(10);
 
@@ -53,9 +52,7 @@ class UserController extends Controller
     //create
     public function create()
     {
-        $departments = Department::all();
-        $faculties = Faculty::all();
-        return view('pages.users.create', compact('departments', 'faculties'));
+        return view('pages.users.create');
     }
 
     //store
@@ -64,19 +61,13 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i',
-            'department_id' => 'required|exists:departments,id',
-            'faculty_id' => 'required|exists:faculties,id',
-
+            'password' => 'required|min:10|regex:/^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'nim' => $request->nim,
-            'department_id' => $request->department_id,
-            'faculty_id' => $request->faculty_id,
             'nip' => $request->nip,
             'role' => $request->role,
         ]);
