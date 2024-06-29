@@ -27,7 +27,7 @@
             <div class="section-body">
                 <h2 class="section-title">Users</h2>
                 <div class="card">
-                    @if (session('error'))
+                            @if (session('error'))
                                 <div class="alert alert-danger">
                                     {{ session('error') }}
                                 </div>
