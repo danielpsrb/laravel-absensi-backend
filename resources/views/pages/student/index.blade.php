@@ -70,7 +70,7 @@
                                                 <td>
                                                     @if ($student->photo_url)
                                                         <img alt="image" src="{{ Storage::url('public/students/' . $student->photo_url) }}"
-                                                            width="40" alt="photo_student">
+                                                            width="45" alt="photo_student">
                                                     @else
                                                         <img alt="image" src="{{ asset('img/avatar/students.png') }}"
                                                             width="40" alt="avatar">

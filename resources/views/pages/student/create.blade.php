@@ -28,16 +28,32 @@
                 <h2 class="section-title">Students</h2>
 
                 <div class="card">
-                    <form action="{{ route('users.store') }}" method="POST">
+                    <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                             <h4>Input Text</h4>
                         </div>
                         <div class="card-body">
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            <!-- Display validation errors -->
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <div class="form-group">
                                 <label>Photo</label>
-                                <input type="file" class="form-control" name="photo_student">
+                                <input type="file" class="form-control" name="photo_student" accept=".png, .jpg, .jpeg">
                             </div>
 
                             <div class="form-group">
@@ -107,9 +123,6 @@
                                     </div>
                                 @enderror
                             </div>
-
-
-
 
                         </div>
                         <div class="card-footer text-right">
