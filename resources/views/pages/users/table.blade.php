@@ -2,10 +2,9 @@
                                         <tr>
                                             <th class="text-center">Name</th>
                                             <th class="text-center">Email</th>
-                                            <th class="text-center">NIM</th>
-                                            <th class="text-center">Program Studi</th>
                                             <th>NIP</th>
                                             <th class="text-center">Role</th>
+                                            <th class="text-center">Created At</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                         @foreach ($users as $user)
@@ -19,16 +18,6 @@
                                                     {{ $user->email }}
                                                 </td>
                                                 <td>
-                                                    <span class="badge badge-light text-dark">
-                                                        {{ $user->nim }}
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-primary">
-                                                        {{ $user->department->name }}
-                                                    </span>
-                                                </td>
-                                                <td>
                                                     {{ $user->nip }}
                                                 </td>
                                                 <td>
@@ -37,6 +26,9 @@
                                                     @elseif($user->role === 'user')
                                                         <span class="badge badge-success">User</span>
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    {{ $user->created_at }}
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
