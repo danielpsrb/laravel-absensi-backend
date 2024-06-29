@@ -26,10 +26,23 @@
 
             <div class="section-body">
                 <h2 class="section-title">Users</h2>
-
-
-
                 <div class="card">
+                    @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            <!-- Display validation errors -->
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                     <form action="{{ route('users.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
@@ -77,39 +90,6 @@
                                         name="password">
                                 </div>
                                 @error('password')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>NIM</label>
-                                <input type="number" class="form-control" name="nim">
-                            </div>
-                            <div class="form-group">
-                                <label>Department</label>
-                                <select class="form-control @error('department_id') is-invalid @enderror" name="department_id">
-                                    <option value="">Pilih Program Studi</option>
-                                    @foreach($departments as $department)
-                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('department_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label>Fakultas</label>
-                                <select class="form-control @error('faculty_id') is-invalid @enderror" name="faculty_id">
-                                    <option value="">Pilih Fakultas</option>
-                                    @foreach($faculties as $faculty)
-                                        <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('faculty_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
